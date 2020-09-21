@@ -1,0 +1,493 @@
+@import url('https://fonts.googleapis.com/css2?family=Lora:ital,wght@1,400;1,700&display=swap');
+
+html, body {
+    overflow-x: hidden;
+}
+
+:root {
+    --anime-time: all ease 0.3s; 
+    --body: #fafafa;
+    --principal: #982F2F;
+    --secundaria: #fff;
+    --preto: #555;
+}
+
+body {
+    font-family: 'Lora', serif;
+    background: var(--body);
+}
+
+.margem {
+    padding: 20px 0px;
+}
+/*================================================
+    Loader
+================================================*/
+.loader {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.loader img {
+    height: 60px;
+}
+/*================================================
+    Animete
+================================================*/
+
+.anime-top {
+    opacity: 0;  
+    transition: var(--anime-time);
+    transform: translate3d(0, -100px, 0);
+}
+
+.anime-bottom {
+    opacity: 0;
+    transition: var(--anime-time);
+    transform: translate3d(0, 100px, 0);
+}
+
+.anime-left {
+    opacity: 0;
+    transition: var(--anime-time);
+    transform: translate3d(-100px, 0, 0);
+}
+
+.anime-right {
+    opacity: 0;
+    transition: var(--anime-time);
+    transform: translate3d(100px, 0, 0);
+}
+
+.anime.anime-start .anime-left,
+.anime.anime-start .anime-right,
+.anime.anime-start .anime-top,
+.anime.anime-start .anime-bottom{
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+}
+/*================================================
+    Banner
+================================================*/
+.banner {
+    background: url('../image/layout/banner.jpg') center center;
+    background-size: cover;
+    width: 100%;
+    height: 60vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding-bottom: 70px;
+}
+
+.banner::after {
+    content: '';
+    position: absolute;
+    width: inherit;
+    height: inherit;
+    top: 0;
+    left: 0;
+    background: rgba(0, 0, 0, 0.7);
+    z-index: 1;
+}
+
+.banner .texto,
+.banner .botoes {
+    position: relative;
+    z-index: 10;
+    justify-content: center;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.banner .texto {
+    margin-bottom: 30px;
+}
+
+.banner .texto span {
+    color: var(--secundaria);
+    font-weight: lighter;
+}
+.banner .botoes .btn {
+    border: 2px solid;
+    border-radius: 500px;
+    padding: 0px 10px;
+    transition: 0.3s;
+    margin-bottom: 10px;
+    margin-right: 5px;
+}
+
+.banner .botoes .btn.btn-branco {
+    border-color: var(--secundaria);
+    color:  var(--secundaria);
+}
+.banner .botoes .btn.btn-verelho {
+    border-color:  var(--principal);
+    background-color: var(--principal);
+    color: var(--secundaria);
+}
+
+.banner .botoes .btn.btn-branco:hover {
+    background: var(--secundaria);
+    color: var(--principal);
+}
+
+.banner .botoes .btn.btn-verelho:hover {
+    background: none;
+    border-color: var(--secundaria);
+}
+
+/*================================================
+    Menu
+================================================*/
+#menu {
+    min-height: 57px;
+    background: rgba(255,255,255,0.7);
+    border-radius: 10px 10px 0px 0px;
+    margin-top: -56px;
+    position: relative;
+    z-index: 10;
+}
+
+.menu-fixo {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 9999;
+}
+.menu-fixo #menu {
+    transition: 0.5s;
+    margin: 0 auto;
+    background: rgba(255,255,255,0.9);
+    border-radius: 0px 0px 10px 10px;
+    box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+#menu .nav-link {
+    color: var(--principal);
+    position: relative;
+    padding: 0 3px;
+    margin: 5px;
+    border-radius: 5px;
+    overflow: hidden;
+}
+
+#menu .nav-link::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 3px;
+    left: 50%;
+    bottom: -1px;
+    background: var(--principal);
+    opacity: 0;
+    transition: all ease 0.3s;
+}
+#menu .nav-link.ativo::after,
+#menu .nav-link:hover::after {
+    opacity: 1;
+    left: 0;
+    width: 100%;
+}
+
+/*================================================
+    Destaques
+================================================*/
+#destaques .owl-carousel .item {
+    background: #999;
+    border-radius: 5px;
+    overflow: hidden;
+}
+#destaques {
+    position: relative;
+}
+
+#destaques .item:hover .btn {
+    opacity: 1;
+}
+#destaques .btn {
+    position: absolute;
+    left: 0;
+    top: 0;
+    border-radius: 4px 0px 4px 0px;
+    background: rgba(255,255,255,0.7);
+    color: var(--principal);
+    padding: 5px;
+    font-size: 0.8em;
+    opacity: 0;
+    transition: all ease 0.3s;
+}
+
+#destaques .item img {
+    cursor: grab;
+}
+/*================================================
+    Cardapio
+================================================*/
+#cardapio .cardapio-menu ul{
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+}
+
+#cardapio .cardapio-menu ul li {
+    margin-right: 5px;
+}
+
+#cardapio .cardapio-menu ul li a {
+    padding: 0px 5px;
+    text-decoration: none;
+    border-radius: 500px;
+    border: 1px solid var(--principal);
+    color: var(--principal);
+    transition: all ease 0.3s;
+}
+#cardapio .cardapio-menu ul li a:hover {
+    background: var(--principal);
+    color: var(--secundaria);
+}
+#cardapio .cardapio-menu ul li a.menu-ativo {
+    background: var(--principal);
+    color: var(--secundaria);
+}
+#cardapio .cardapio-item {
+    display: flex;
+    justify-content: space-between;
+    position: relative;
+    overflow: hidden;
+    margin-top: 10px;
+}
+#cardapio .cardapio-item span {
+    background: var(--body);
+    position: relative;
+    z-index: 10;
+}
+
+#cardapio .cardapio-item::after {
+    content: "..............................................."
+            "................................................"
+            "................................................";
+    position: absolute;
+    left: 20px;
+    right: 20px;
+    bottom: 0;
+    z-index: 1;
+}
+#cardapio p {
+    margin: 0;
+    font-size: 0.8em;
+    font-weight: lighter;
+    color: var(--principal);
+}
+
+.cardapio-container {
+    display: none;
+}
+
+/*================================================
+    Visualizar imagem
+================================================*/
+#visualizar-imagem.ativo {
+    display: flex;
+}
+
+#visualizar-imagem {
+    position: fixed;
+    z-index: 999;
+    top: 0;
+    width: 100vw;
+    height: 100vh;    
+    justify-content: center;
+    align-items: center;
+    display: none;
+}
+#visualizar-imagem .conteudo {
+    max-width: 600px;
+    padding: 10px;
+    position: relative;
+    z-index: 910;
+}
+#visualizar-imagem .btn {
+   float: right;
+   margin-top: -20px;
+   margin-bottom: 20px;
+   color: var(--secundaria);
+   border-radius: 50%;
+   font-weight: bold;
+   transition: all ease 0.3s;
+   position: relative;
+    z-index: 911;
+}
+#visualizar-imagem .btn:hover {
+    color: var(--principal);
+}
+#visualizar-imagem .imagem {
+    max-width: inherit;
+    opacity: 0;
+    transition: all ease 0.3s;
+    transform: translate3d(0, -100px, 0);
+}
+#visualizar-imagem .imagem.foto-start {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+}
+
+#visualizar-imagem .imagem img {
+    width: 100%;
+}
+#visualizar-imagem .fundo-preto {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 900;
+}
+/*================================================
+    Sobre
+================================================*/
+#sobre .col-md-4{
+    display: flex;
+    margin-top: 20px;
+}
+#sobre .info {
+    padding: 10px;
+    flex: 1;
+    border-radius: 10px;
+    box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+    text-align: center;
+    background: var(--secundaria);
+}
+#sobre .info i {
+    color: var(--principal);
+    font-size: 2em;
+}
+#sobre .info i,
+#sobre .info h3,
+#sobre .info p {
+    margin-top: 20px;
+}
+
+/*================================================
+    Footer
+================================================*/
+footer {
+    min-height: 150px;
+    display: flex;
+    align-items: center;
+    padding: 20px 0;
+    background: #cecece;
+}
+footer .col-md-2,
+footer .col-md-8 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 10px;
+}
+footer .social,
+footer .menu-footer {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+footer .social a,
+footer .menu-footer a{
+    text-decoration: none;    
+    color: var(--principal);    
+    transition: 0.3s;
+}
+footer .social a {
+    flex: 1;
+    margin-left: 5px;
+    transition: 0.3s;
+    font-size: 1.5em;    
+    height: 36px;
+    width: 36px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+}
+footer .menu-footer a {
+    border-radius: 500px;
+    padding: 2px 10px;
+}
+footer .social a:hover,
+footer .menu-footer a:hover {
+    background: var(--principal);
+    color: var(--secundaria);
+}
+
+footer p {
+    color: #555;
+    font-size: 0.9em;
+    text-align: center;
+    margin-top: 50px;
+}
+footer p a {
+    text-decoration: none;
+    color: #444;
+}
+footer p a:hover {
+    color: #333;
+}
+/*================================================
+    Tipografia
+================================================*/
+h1 {
+    font-weight: bold;
+    font-size: 4em;
+    letter-spacing: -0.05em;
+    color: var(--principal);
+}
+h2 {
+    font-weight: bold;
+    font-size: 1.2em;
+    letter-spacing: -0.04em;
+    color: var(--preto);
+    position: relative;
+    padding-bottom: 5px;
+}
+
+h2::after {
+    content: '';
+    position: absolute;
+    width: 50px;
+    height: 2px;
+    bottom: 0;
+    left: 0;
+    background: var(--principal);
+    animation: animar 1s infinite;
+}
+
+h3 {
+    font-weight: bold;
+    font-size: 1em;
+    letter-spacing: -0.04em;
+    color: var(--preto);
+}
+/*================================================
+    Mobile
+================================================*/
+@media (max-width: 767.98px) {
+    #menu ul {
+        
+        margin-top: 20px;
+    }
+    #destaques .btn {
+        opacity: 1;
+    }
+    h1 {
+        font-size: 3em;
+    }
+}
