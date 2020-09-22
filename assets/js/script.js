@@ -94,11 +94,18 @@ $(document).ready(_ => {
 
     function selecionarMenu(menu) {
         let id = $(menu).attr('href'),
-            alturaTop = $(id).offset().top - 57
-        
-        $('html, body').animate({
-            scrollTop: alturaTop
-        }, 300)
+            body = $('html, body'),
+            alturaTop = $(id).offset().top - 57,
+            alturaScroll = $(document).scrollTop(),
+            margemAnime = 0
+
+        if(alturaScroll > alturaTop) {
+            margemAnime = alturaTop -50
+        } else {
+            margemAnime = alturaTop +50
+        }
+        body.animate({ scrollTop: margemAnime }, 600)
+        body.animate({ scrollTop: alturaTop }, 300)
     }
     function ativarMenu (menu) {
         topoMenu.removeClass(classMenuAtivo)          
