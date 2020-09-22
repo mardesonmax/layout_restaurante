@@ -10,6 +10,7 @@ html, body {
     --principal: #982F2F;
     --secundaria: #fff;
     --preto: #555;
+    --box: 0px 2px 4px rgba(0, 0, 0, 0.3);
 }
 
 body {
@@ -147,12 +148,10 @@ body {
     Menu
 ================================================*/
 #menu {
-    min-height: 57px;
+    height: 57px;
     background: rgba(255,255,255,0.7);
     border-radius: 10px 10px 0px 0px;
     margin-top: -56px;
-    position: relative;
-    z-index: 10;
 }
 
 .menu-fixo {
@@ -167,7 +166,7 @@ body {
     margin: 0 auto;
     background: rgba(255,255,255,0.9);
     border-radius: 0px 0px 10px 10px;
-    box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+    box-shadow: var(--box);
 }
 
 #menu .nav-link {
@@ -205,10 +204,6 @@ body {
     border-radius: 5px;
     overflow: hidden;
 }
-#destaques {
-    position: relative;
-}
-
 #destaques .item:hover .btn {
     opacity: 1;
 }
@@ -219,10 +214,11 @@ body {
     border-radius: 4px 0px 4px 0px;
     background: rgba(255,255,255,0.7);
     color: var(--principal);
-    padding: 5px;
+    padding: 0 5px;
     font-size: 0.8em;
     opacity: 0;
     transition: all ease 0.3s;
+    font-size: 1.2em;
 }
 
 #destaques .item img {
@@ -363,7 +359,7 @@ body {
     padding: 10px;
     flex: 1;
     border-radius: 10px;
-    box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+    box-shadow: var(--box);
     text-align: center;
     background: var(--secundaria);
 }
@@ -375,6 +371,9 @@ body {
 #sobre .info h3,
 #sobre .info p {
     margin-top: 20px;
+}
+#sobre .info p {
+    color: #999;
 }
 
 /*================================================
@@ -452,7 +451,7 @@ h1 {
 }
 h2 {
     font-weight: bold;
-    font-size: 1.2em;
+    font-size: 1.3em;
     letter-spacing: -0.04em;
     color: var(--preto);
     position: relative;
@@ -476,13 +475,26 @@ h3 {
     letter-spacing: -0.04em;
     color: var(--preto);
 }
+
+a {
+    font-size: 1.1em;
+}
 /*================================================
     Mobile
 ================================================*/
 @media (max-width: 767.98px) {
-    #menu ul {
-        
-        margin-top: 20px;
+    #menu #menu-nav {
+        position: absolute;
+        top: 57px;
+        left: 0;
+        right: 0;
+    }
+    #menu ul{
+        margin-top: 10px;        
+        background-color: rgba(255,255,255,0.9);
+        border-radius: 10px;
+        box-shadow: var(--box);
+        padding: 10px;
     }
     #destaques .btn {
         opacity: 1;

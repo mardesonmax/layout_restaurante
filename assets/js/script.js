@@ -16,7 +16,7 @@ $(document).ready(_ => {
                 items:3
             },
             1000:{
-                items:6
+                items:5
             }
         }
     })
@@ -35,6 +35,15 @@ $(document).ready(_ => {
         }
     }
 
+    function fecharMenu() {
+        let menu = $('.navbar-toggler'),
+            abrir = 'fa-bars',
+            exit = 'fa-times'
+        if($(menu).hasClass(exit)) {
+            menu.removeClass(exit).addClass(abrir)
+            $('.navbar-collapse').collapse('hide')
+        } 
+    }
     
     $('.navbar-toggler').on('click', e => {
         mudarIconeMenu()
@@ -85,8 +94,7 @@ $(document).ready(_ => {
 
     function selecionarMenu(menu) {
         let id = $(menu).attr('href'),
-            menuH = $('#topo-menu').height(),
-            alturaTop = $(id).offset().top - menuH
+            alturaTop = $(id).offset().top - 57
         
         $('html, body').animate({
             scrollTop: alturaTop
@@ -116,6 +124,7 @@ $(document).ready(_ => {
 
         selecionarMenu(e.target)
         
+        fecharMenu()
     })
 
     /*===================================================
@@ -165,6 +174,7 @@ $(document).ready(_ => {
     })
     $(document).scroll(_ => {
         animeScroll()
+        fecharMenu()
     })
 
     /*===================================================
