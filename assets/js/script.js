@@ -63,7 +63,7 @@ $(document).ready(_ => {
             $('#visualizar-imagem .imagem').addClass('foto-start')   
         }, 100);
 
-        $('html, body').css('overflow', 'hidden')
+        $('html, body').css('overflow-y', 'hidden')
 
     })
 
@@ -75,7 +75,7 @@ $(document).ready(_ => {
             $('#visualizar-imagem').removeClass('ativo')   
         }, 300);
         
-        $('html, body').css('overflow', 'auto')
+        $('html, body').css('overflow-y', 'auto')
     }
 
     $('#visualizar-imagem .btn').on('click', e => {
