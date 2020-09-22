@@ -76,7 +76,7 @@ body {
     Banner
 ================================================*/
 .banner {
-    background: url('../image/layout/banner.jpg') center center;
+    background: url('../image/layout/banner.png') center center;
     background-size: cover;
     width: 100%;
     height: 60vh;
