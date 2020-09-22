@@ -112,37 +112,38 @@ body {
 }
 
 .banner .texto span {
-    color: var(--secundaria);
+    color: var(--principal);
     font-weight: lighter;
 }
 .banner .botoes .btn {
-    border: 2px solid;
     border-radius: 500px;
-    padding: 0px 10px;
+    padding: 0px 15px;
     transition: 0.3s;
     margin-bottom: 10px;
     margin-right: 5px;
-    font-size: 1.3em;
+    font-size: 1.8em;
+    opacity: 1;
 }
 
 .banner .botoes .btn.btn-branco {
-    border-color: var(--secundaria);
-    color:  var(--secundaria);
+    background-color: var(--secundaria);
+    color:  var(--principal);
 }
 .banner .botoes .btn.btn-verelho {
-    border-color:  var(--principal);
     background-color: var(--principal);
     color: var(--secundaria);
 }
 
 .banner .botoes .btn.btn-branco:hover {
-    background: var(--secundaria);
-    color: var(--principal);
+    background: var(--principal);
+    color: var(--secundaria);
+    opacity: 0.7;
 }
 
 .banner .botoes .btn.btn-verelho:hover {
-    background: none;
-    border-color: var(--secundaria);
+    background: var(--secundaria);
+    color: var(--principal);
+    opacity: 0.7;
 }
 
 /*================================================
@@ -443,14 +444,13 @@ footer p a:hover {
     Tipografia
 ================================================*/
 h1 {
-    font-weight: bold;
+    font-weight: 900;
     font-size: 4em;
     letter-spacing: -0.05em;
-    color: var(--principal);
+    color: var(--secundaria);
 }
 h2 {
-    font-weight: bold;
-    font-size: 1.8em;
+    font-weight: 700;
     letter-spacing: -0.04em;
     color: var(--preto);
     position: relative;
@@ -469,8 +469,7 @@ h2::after {
 }
 
 h3 {
-    font-weight: bold;
-    font-size: 1.2em;
+    font-weight: 500;
     letter-spacing: -0.04em;
     color: var(--preto);
 }
@@ -479,9 +478,10 @@ a, span {
     font-size: 1.1em;
 }
 p {
-    font-weight: 100;
+    font-weight: lighter;
     font-size: 1em;
 }
+
 /*================================================
     Mobile
 ================================================*/
@@ -502,7 +502,10 @@ p {
     #destaques .btn {
         opacity: 1;
     }
-    h1 {
+    .banner .texto h1 {
         font-size: 3em;
+    }
+    .banner .botoes .btn {
+        font-size: 1.5em;
     }
 }
